@@ -16,16 +16,16 @@
   <meta name="author" content="Zander">
   <meta name="keywords" content="">
   
-    <meta name="description" content="C语言处理字符串    通过%s输出遇到的问题">
+    <meta name="description" content="strcpy，strncpy，memcpy区别">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C语言字符串处理">
-<meta property="og:url" content="http://example.com/2023/09/13/C%E8%AF%AD%E8%A8%80%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/index.html">
+<meta property="og:title" content="strcpy—strncpy-memcpy">
+<meta property="og:url" content="http://example.com/2023/09/15/strcpy%E2%80%94strncpy-memcpy/index.html">
 <meta property="og:site_name" content="Zander&#39;s Blog">
-<meta property="og:description" content="C语言处理字符串    通过%s输出遇到的问题">
+<meta property="og:description" content="strcpy，strncpy，memcpy区别">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/C.jpg">
-<meta property="article:published_time" content="2023-09-13T09:27:44.000Z">
-<meta property="article:modified_time" content="2023-09-14T00:19:44.104Z">
+<meta property="article:published_time" content="2023-09-15T01:43:48.000Z">
+<meta property="article:modified_time" content="2023-09-15T01:45:12.808Z">
 <meta property="article:author" content="Zander">
 <meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary_large_image">
@@ -35,7 +35,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>C语言字符串处理 - Zander&#39;s Blog</title>
+  <title>strcpy—strncpy-memcpy - Zander&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -213,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="C语言字符串处理"></span>
+            <span id="subtitle" data-typed-text="strcpy—strncpy-memcpy"></span>
           
         </div>
 
@@ -224,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-13 17:27" pubdate>
-          2023年9月13日 下午
+        <time datetime="2023-09-15 09:43" pubdate>
+          2023年9月15日 上午
         </time>
       </span>
     
@@ -236,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          960 字
+          2.1k 字
         
       </span>
     
@@ -247,7 +247,7 @@
         
         
         
-          9 分钟
+          18 分钟
         
       </span>
     
@@ -284,27 +284,55 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">C语言字符串处理</h1>
+            <h1 id="seo-header">strcpy—strncpy-memcpy</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="C语言-字符串-s"><a href="#C语言-字符串-s" class="headerlink" title="C语言 字符串 %s"></a>C语言 字符串 %s</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>C语言处理字符串    通过%s输出遇到的问题</p>
-</blockquote>
-<h3 id="1、我的结构体定义"><a href="#1、我的结构体定义" class="headerlink" title="1、我的结构体定义"></a>1、我的结构体定义</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs scss">typedef struct<br><br>&#123;<br><br>	char head <span class="hljs-selector-attr">[4]</span>;<br><br>	char name <span class="hljs-selector-attr">[8]</span>;<br><br>	char spare <span class="hljs-selector-attr">[4]</span>;<br><br>&#125; IF_AA01; <span class="hljs-comment">//aa01</span><br><br></code></pre></td></tr></table></figure>
-<p>定义了三个结构体成员变量，均为字符数组。<code>spare</code>为空格。</p>
-<h4 id="2、main-函数"><a href="#2、main-函数" class="headerlink" title="2、main()函数"></a>2、main()函数</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-built_in">int</span> <span class="hljs-title">main</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> argc, <span class="hljs-built_in">char</span> <span class="hljs-keyword">const</span> *argv[]</span>)</span><br><br>&#123;<br><br>	IF_AA01 aa01;<br><br>	<span class="hljs-built_in">char</span> <span class="hljs-built_in">string</span>[<span class="hljs-number">16</span>] = <span class="hljs-string">&quot;AA01AS01101     &quot;</span>;<br><br>	<span class="hljs-built_in">char</span> _no[<span class="hljs-number">8</span>];<br><br>	memcpy(&amp;aa01, <span class="hljs-built_in">string</span>, <span class="hljs-keyword">sizeof</span>(aa01));<br><br>	<span class="hljs-comment">// 将字符串中的空格替换为 &#x27;\0&#x27;</span><br><br>	<span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">sizeof</span>(aa01.name); i++) <br>	&#123;<br><br>		<span class="hljs-keyword">if</span> (aa01.name[i] == <span class="hljs-string">&#x27; &#x27;</span>) &#123;<br><br>			aa01.name[i] = <span class="hljs-string">&#x27;\0&#x27;</span>;<br><br>		&#125;<br><br>	&#125;<br><br>	strncpy(_no, aa01.name, <span class="hljs-keyword">sizeof</span>(aa01.name));<br><br>	printf(<span class="hljs-string">&quot;[%.*s]\n&quot;</span>, <span class="hljs-keyword">sizeof</span>(aa01.head), aa01.head);<br><br>	printf(<span class="hljs-string">&quot;[%s]&quot;</span>,_no);<br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>&#125;<br></code></pre></td></tr></table></figure>
-<p><code>string</code> 字符串定义的 <code>AA01AS01101     </code>后面一共5个空格 ，	<code>name</code>属性的最后一个空格 ，还有<code>spare</code> 的4个空格 。</p>
-<h4 id="3、格式化控制-s"><a href="#3、格式化控制-s" class="headerlink" title="3、格式化控制 %s"></a>3、格式化控制 %s</h4><p>使用<code>%s</code>格式化控制输出字符串时，我发现如果不进行控制，他会一直输出到<code>\0</code>为止 。<br>这就导致在结构体中的字符串成员变量失去价值 。</p>
-<h4 id="4、解决方案"><a href="#4、解决方案" class="headerlink" title="4、解决方案"></a>4、解决方案</h4><ol>
-<li><p><code>%.4s</code> 设置宽度，即输出从此地址下的往后4个字节的字符串的宽度 。</p>
+                <h1 id="strcpy，strncpy，memcpy"><a href="#strcpy，strncpy，memcpy" class="headerlink" title="strcpy，strncpy，memcpy"></a>strcpy，strncpy，memcpy</h1><h2 id="strcpy与strncpy区别"><a href="#strcpy与strncpy区别" class="headerlink" title="strcpy与strncpy区别"></a>strcpy与strncpy区别</h2><p>n代表可以指定字符个数进行赋值，当src字符串长度小于n，dst数组就用额外的’\0’字节填充到n长度。</p>
+<h4 id="strcpy实现："><a href="#strcpy实现：" class="headerlink" title="strcpy实现："></a>strcpy实现：</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">// 为了实现链式操作，将目的地址返回，strcopy()可作为其它函数的参数(实参)</span><br><span class="hljs-type">char</span>* <span class="hljs-title function_">strcopy</span><span class="hljs-params">(<span class="hljs-type">char</span>* dest,<span class="hljs-type">const</span> <span class="hljs-type">char</span>* src)</span><br>&#123;<br>assert(dest != <span class="hljs-literal">NULL</span> &amp;&amp; src!= <span class="hljs-literal">NULL</span>); <span class="hljs-comment">// 指针安全检查</span><br><span class="hljs-comment">//对dest和src两个指针做循环移动并不断复制src内存的值到dest内存中</span><br><span class="hljs-comment">//当src内存中的值为’\0’时，做最后一次复制</span><br>    <span class="hljs-keyword">while</span> ((*dest++ = *src++) != <span class="hljs-string">&#x27;\0&#x27;</span>);<br>    <span class="hljs-keyword">return</span> dest;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="strncpy实现："><a href="#strncpy实现：" class="headerlink" title="strncpy实现："></a>strncpy实现：</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> *<span class="hljs-title function_">strncpy</span><span class="hljs-params">(<span class="hljs-type">char</span> *dest, <span class="hljs-type">const</span> <span class="hljs-type">char</span> *src, <span class="hljs-type">size_t</span> n)</span>  <br>&#123;  <br> assert(dest != <span class="hljs-literal">NULL</span> &amp;&amp; src != <span class="hljs-literal">NULL</span>);  <br> <span class="hljs-type">char</span> *res = dest;  <br> <span class="hljs-type">int</span> offset = <span class="hljs-number">0</span>;  <br> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strlen</span>(src) &lt; n)  <span class="hljs-comment">//src长度小于n  </span><br> &#123;  <br>  offset = n- <span class="hljs-built_in">strlen</span>(src);  <br>  n = <span class="hljs-built_in">strlen</span>(src);  <br> &#125;  <br> <span class="hljs-keyword">while</span> (n--)  <br> &#123;  <br>  *dest++ = *src++;  <br> &#125;  <br> <span class="hljs-keyword">while</span> (offset--)  <span class="hljs-comment">//src长度小于n，用’\0’填充dest</span><br> &#123;  <br>  *dest++ = <span class="hljs-string">&#x27;\0&#x27;</span>;  <br> &#125;  <br> <span class="hljs-keyword">return</span> res;  <br></code></pre></td></tr></table></figure>
+
+<p>当n长度大于strlen(dest)时，使用这个函数（与 strcpy 一样），尤其需要注意，不要出现 n&gt;strlen(dst)的情况，如果 n&gt;strlen(dst)，那么会破坏dst后面的内存。所以，使用strncpy时，最好自动添加‘\0’在结尾。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> buffer[BSIZE];<br>.<br>.<br><span class="hljs-built_in">strncpy</span>(buffer,name,BSIZE);<br>buffer[BSIZE<span class="hljs-number">-1</span>]=’\<span class="hljs-number">0</span>’;<br></code></pre></td></tr></table></figure>
+
+<h2 id="strcpy与memcpy区别"><a href="#strcpy与memcpy区别" class="headerlink" title="strcpy与memcpy区别"></a>strcpy与memcpy区别</h2><ol>
+<li><p>复制的内容不同：strcpy()只能复制字符串，而memcpy()可以复制任意内容，例如字符数组、整型、结构体、类等；</p>
 </li>
-<li><p><code>%.*s</code> * 相当于一个占位符，和1一样 。<br> 语法 ：<code>printf(&quot;[%.*s]\n&quot;, sizeof(aa01.head), aa01.head);</code></p>
+<li><p>复制的方法不同：strcpy()不指定长度，它遇到被复制字符串结束符”\0”才结束拷贝，所以容易溢出，memcpy()则是根据其第三个参数决定复制的长度；</p>
 </li>
-<li><p>第三种方法是我将<code>name</code>的第八位的空格 ，也就是 <code>name[7]</code> 空格替换为了<code>\0</code>，这样遇到结束符号就停止，不会再向下输出了。</p>
+<li><p>用途不同：通常在复制字符串时用strcpy()，而需要复制其他类型数据时则一般用memcpy()；</p>
 </li>
 </ol>
+<h4 id="memcpy实现："><a href="#memcpy实现：" class="headerlink" title="memcpy实现："></a>memcpy实现：</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//void*代表复制的数据可以是任意类型，之后进行类型间的强制转换</span><br><span class="hljs-type">void</span>* <span class="hljs-title function_">memcopy</span><span class="hljs-params">(<span class="hljs-type">void</span>* dest,<span class="hljs-type">const</span> <span class="hljs-type">void</span>* src,<span class="hljs-type">size_t</span> count)</span><br>&#123;<br>    assert(dest != <span class="hljs-literal">NULL</span> &amp;&amp; src != <span class="hljs-literal">NULL</span>); <span class="hljs-comment">// 指针安全检查</span><br>    <span class="hljs-type">char</span>* pDest = (<span class="hljs-type">char</span> *)dest; <span class="hljs-comment">//保存dest首地址</span><br>    <span class="hljs-type">char</span>* pSrc = (<span class="hljs-type">char</span> *)src;  <span class="hljs-comment">//保存src首地址</span><br>    <span class="hljs-keyword">while</span>(count-- &gt; <span class="hljs-number">0</span>) <span class="hljs-comment">//循环count次，进行复制操作</span><br>    &#123;<br>        *pDest++ = *pSrc++;<br>    &#125;<br>    <span class="hljs-keyword">return</span> dest; <span class="hljs-comment">//此时，dest为复制过后内容的首地址</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><ol>
+<li><p>strcpy 是依据 “\0” 作为结束判断的，如果 s2 的空间不够，则会引起 buffer overflow。</p>
+</li>
+<li><p>memcpy用来在内存中复制数据，由于字符串是以“\0”结尾的，所以对于在数据中包含“\0”的数据只能用memcpy。</p>
+</li>
+<li><p>Strncpy和memcpy很相似，只不过它在一个终止的空字符处停止。当n&gt;strlen(s1)时，给s2不够数的空间里填充“\0”；当n&lt;&#x3D;strlen(s1)时，s2是没有结束符“\0”的。</p>
+<p>这里隐藏了一个事实，就是s2指向的内存一定会被写n个字符。</p>
+</li>
+</ol>
+<p>所以总的来说注意：</p>
+<ol>
+<li><p>dest指向的空间要足够拷贝；使用strcpy时，dest指向的空间要大于等于src指向的空间；使用strncpy或memcpy时，dest指向的空间要大于或等于n。</p>
+</li>
+<li><p>使用strncpy或memcpy时，n应该大于strlen(src)，或者说最好n &gt;&#x3D; strlen(src)+1；这个1 就是最后的“\0”。</p>
+</li>
+<li><p>使用strncpy时，确保dest的最后一个字符是“\0”。</p>
+</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/century_sunshine/article/details/80738139">strcpy、strncpy和memcpy的用法与区别详解_memcpy和strncpy_century_sunshine的博客-CSDN博客</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/124291973">【C语言】strcpy&amp;strncpy&amp;memcpy - 知乎<br>(zhihu.com)</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/taric_ma/article/details/7383713">strcpy、strncpy与memcpy的区别与使用方法_strcpy和memcpy的区别_CN_项目集管理专家(PgMP)的博客-CSDN博客</a></p>
+</li>
+</ul>
 
                 
               </div>
@@ -329,8 +357,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>C语言字符串处理</div>
-      <div>http://example.com/2023/09/13/C语言字符串处理/</div>
+      <div>strcpy—strncpy-memcpy</div>
+      <div>http://example.com/2023/09/15/strcpy—strncpy-memcpy/</div>
     </div>
     <div class="license-meta">
       
@@ -342,7 +370,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月13日</div>
+          <div>2023年9月15日</div>
         </div>
       
       
@@ -374,18 +402,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/15/strcpy%E2%80%94strncpy-memcpy/" title="strcpy—strncpy-memcpy">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">strcpy—strncpy-memcpy</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/10/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2023/09/13/C%E8%AF%AD%E8%A8%80%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" title="C语言字符串处理">
+                        <span class="hidden-mobile">C语言字符串处理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
