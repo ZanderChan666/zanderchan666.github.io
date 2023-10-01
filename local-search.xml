@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>C++VS  ui界面动态库</title>
+    <link href="/2023/10/01/C++%20ui%E7%95%8C%E9%9D%A2%E5%8A%A8%E6%80%81%E5%BA%93%E5%8F%8A%E8%B0%83%E7%94%A8/"/>
+    <url>/2023/10/01/C++%20ui%E7%95%8C%E9%9D%A2%E5%8A%A8%E6%80%81%E5%BA%93%E5%8F%8A%E8%B0%83%E7%94%A8/</url>
+    
+    <content type="html"><![CDATA[<ol><li>新建QT lib<br>加入QT gui   和   QT core  </li><li>不要点击生成lib静态</li><li>新建完成删除.h  .cpp文件。记住名字。</li><li>右击添加类-》QT4guiclass  类名字填写刚才那个名字一致即可。</li><li>设置导出   testlib_global.h 文件下    复制TESTLIB_EXPORT</li><li>testlib.h   引入</li></ol><p>#include “testlib_global.h”<br>class TESTLIB_EXPORT testLib : public QWidget<br> 7. 加入按钮和槽函数<br>void testLib::on_okButton_clicked()<br>{<br>    qDebug() &lt;&lt; “TEST LIB TESTLIB!!!”;<br>}<br> 8. 生成<br>完成了创建动态库<br>3个h文件<br>lib文件<br>dll文件<br> 9. 新建正常的QT gui项目<br> 10. 项目目录下新建include ，lib文件，h文件放inde  ，lib，dll 文件放到lib 里。<br> 11. 点击调试<br> 12. 项目属性中包含目录，库目录，添加依赖项<br> 13. ui文件添加按钮事件   添加一个stackedWidget<br>void LibUser::on_anBtn_clicked()<br>{<br>    ui.stackedWidget-&gt;setCurrentIndex(1);<br>}<br>注意ui后 是   .   stackedWidget 后面是   -&gt;<br> 14. cpp中 引入<br>#include “testlib.h”</p><p>LibUser::LibUser(QWidget *parent, Qt::WFlags flags)<br>    : QMainWindow(parent, flags)<br>{<br>    ui.setupUi(this);</p><pre><code class="hljs">testLib *w = new testLib;w-&gt;show();</code></pre><p>}</p><p> testLib 为动态库类名字</p><p>注意：：：<br>C++动态库再调用时：<br>UpdatePwd *w &#x3D; new UpdatePwd(std::string(“11112”));<br>    w-&gt;show();<br>写为指针，不然一闪而过，如果报错LINK2019  查看是否再类前面加入了   PLUGIN_UPDATEPWD_API  导出。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>QT; C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>导出Excel</title>
     <link href="/2023/10/01/%E5%AF%BC%E5%87%BAExcel-0/"/>
     <url>/2023/10/01/%E5%AF%BC%E5%87%BAExcel-0/</url>
