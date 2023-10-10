@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>友元函数 友元类</title>
+    <link href="/2023/10/10/%E5%8F%8B%E5%85%83%E5%87%BD%E6%95%B0%E5%8F%8B%E5%85%83%E7%B1%BB/"/>
+    <url>/2023/10/10/%E5%8F%8B%E5%85%83%E5%87%BD%E6%95%B0%E5%8F%8B%E5%85%83%E7%B1%BB/</url>
+    
+    <content type="html"><![CDATA[<h2 id="友元函数-友元类"><a href="#友元函数-友元类" class="headerlink" title="友元函数 友元类"></a>友元函数 友元类</h2><h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><p>友元 <code>friend</code> 修饰。</p><ul><li>类的友元函数是定义在类外部，但有权访问类的所有私有（private）成员和保护（protected）成员。<br></li><li>尽管友元函数的原型有在类的定义中出现过，但是友元函数并不是成员函数。<br></li><li>友元可以是一个函数，该函数被称为友元函数；友元也可以是一个类，该类被称为友元类，在这种情况下，整个类及其所有成员都是友元。<br></li></ul><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Box</span><br>&#123;<br>    <span class="hljs-type">double</span> width;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-type">void</span> <span class="hljs-title">printWidth</span><span class="hljs-params">(Box box)</span></span>;<br>    <span class="hljs-keyword">friend</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BigBox</span>;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">setWidth</span><span class="hljs-params">(<span class="hljs-type">double</span> wid)</span></span>;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">BigBox</span><br>&#123;<br><span class="hljs-keyword">public</span> :<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Print</span><span class="hljs-params">(<span class="hljs-type">int</span> width, Box &amp;box)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-comment">// BigBox是Box的友元类，它可以直接访问Box类的任何成员</span><br>        box.<span class="hljs-built_in">setWidth</span>(width);<br>        cout &lt;&lt; <span class="hljs-string">&quot;Width of box : &quot;</span> &lt;&lt; box.width &lt;&lt; endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-comment">// 成员函数定义</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Box::setWidth</span><span class="hljs-params">(<span class="hljs-type">double</span> wid)</span></span><br><span class="hljs-function"></span>&#123;<br>    width = wid;<br>&#125;<br><br><span class="hljs-comment">// 请注意：printWidth() 不是任何类的成员函数</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">printWidth</span><span class="hljs-params">(Box box)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">/* 因为 printWidth() 是 Box 的友元，它可以直接访问该类的任何成员 */</span><br>    cout &lt;&lt; <span class="hljs-string">&quot;Width of box : &quot;</span> &lt;&lt; box.width &lt;&lt; endl;<br>&#125;<br><br><span class="hljs-comment">// 程序的主函数</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    Box box;<br>    BigBox big;<br><br>    <span class="hljs-comment">// 使用成员函数设置宽度</span><br>    box.<span class="hljs-built_in">setWidth</span>(<span class="hljs-number">10.0</span>);<br><br>    <span class="hljs-comment">// 使用友元函数输出宽度</span><br>    <span class="hljs-built_in">printWidth</span>(box);<br><br>    <span class="hljs-comment">// 使用友元类中的方法设置宽度</span><br>    big.<span class="hljs-built_in">Print</span>(<span class="hljs-number">20</span>, box);<br><br>    <span class="hljs-built_in">getchar</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>虚函数和纯虚函数以及抽象类</title>
     <link href="/2023/10/10/%E8%99%9A%E5%87%BD%E6%95%B0%E7%BA%AF%E8%99%9A%E5%87%BD%E6%95%B0/"/>
     <url>/2023/10/10/%E8%99%9A%E5%87%BD%E6%95%B0%E7%BA%AF%E8%99%9A%E5%87%BD%E6%95%B0/</url>
@@ -71,7 +90,9 @@
     
     <tags>
       
-      <tag>QT, C++</tag>
+      <tag>C++</tag>
+      
+      <tag>QT</tag>
       
     </tags>
     
