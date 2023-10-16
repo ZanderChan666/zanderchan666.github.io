@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>两种时间字符串格式的转化</title>
+    <link href="/2023/10/16/QT%E4%B8%A4%E7%A7%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E8%BD%AC%E5%8C%96/"/>
+    <url>/2023/10/16/QT%E4%B8%A4%E7%A7%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E8%BD%AC%E5%8C%96/</url>
+    
+    <content type="html"><![CDATA[<h2 id="两种字符串时间格式的转化"><a href="#两种字符串时间格式的转化" class="headerlink" title="两种字符串时间格式的转化"></a>两种字符串时间格式的转化</h2><blockquote><p>QT中对字符串时间格式的转化为另一种字符串时间格式</p></blockquote><figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vbscript">QDateTime makeTime = QDateTime::from<span class="hljs-built_in">String</span>(Q<span class="hljs-built_in">String</span>(“<span class="hljs-number">20230102123478</span>”), <span class="hljs-string">&quot;yyyyMMddhhmmss&quot;</span>);<br>QString formattedMakeTime = makeTime.<span class="hljs-keyword">to</span><span class="hljs-built_in">String</span>(<span class="hljs-string">&quot;yyyy/MM/dd hh:mm:ss&quot;</span>);<br></code></pre></td></tr></table></figure><p>转化的步骤：</p><ol><li>先将时间字符串转化为时间格式   QString-&gt;QDateTime(QDate)</li><li>再将刚刚的时间格式转化为字符串  QDateTime(QDate)-&gt;QString</li></ol>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>QT</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>MYSQL OR关键字</title>
     <link href="/2023/10/11/mysql%20%20%20OR%E5%85%B3%E9%94%AE%E8%AF%8D/"/>
     <url>/2023/10/11/mysql%20%20%20OR%E5%85%B3%E9%94%AE%E8%AF%8D/</url>
