@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>QTabelView列宽自适应</title>
+    <link href="/2023/10/16/QT4.1%20%20QTableView%E8%87%AA%E9%80%82%E5%BA%94/"/>
+    <url>/2023/10/16/QT4.1%20%20QTableView%E8%87%AA%E9%80%82%E5%BA%94/</url>
+    
+    <content type="html"><![CDATA[<p>由于QT版本较低，在网上搜到很多自适应都没有办法使用<br>eg：</p><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs scss">ui<span class="hljs-selector-class">.tableView-</span>&gt;<span class="hljs-built_in">horizontalHeader</span>()-&gt;<span class="hljs-built_in">setSectionResizeMode</span>(QHeaderView::Stretch);    <span class="hljs-comment">//x先自适应宽度</span><br>ui<span class="hljs-selector-class">.tableView-</span>&gt;<span class="hljs-built_in">horizontalHeader</span>()-&gt;<span class="hljs-built_in">setSectionResizeMode</span>(<span class="hljs-number">0</span>, QHeaderView::ResizeToContents);     <span class="hljs-comment">//然后设置要根据内容使用宽度的列</span><br></code></pre></td></tr></table></figure><p>可以使用这个，但是要放在setModel(model)之后<br><code>ui.tableView-&gt;resizeColumnsToContents();</code></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>QT</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>两种时间字符串格式的转化</title>
     <link href="/2023/10/16/QT%E4%B8%A4%E7%A7%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E8%BD%AC%E5%8C%96/"/>
     <url>/2023/10/16/QT%E4%B8%A4%E7%A7%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E8%BD%AC%E5%8C%96/</url>
