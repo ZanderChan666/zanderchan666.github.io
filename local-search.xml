@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>MySQL  limit关键字</title>
+    <link href="/2023/10/18/mysql%20limit/"/>
+    <url>/2023/10/18/mysql%20limit/</url>
+    
+    <content type="html"><![CDATA[<h3 id="limit关键字"><a href="#limit关键字" class="headerlink" title="limit关键字"></a>limit关键字</h3><p>限制展示的数据 后跟数字表示几条数据。</p><p>加上limit 300<br>在使用过程中，<br>如果查出数据效率ok<br>如果没有数据，效率极慢。 </p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>MySQL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>QTabelView列宽自适应</title>
     <link href="/2023/10/16/QT4.1%20%20QTableView%E8%87%AA%E9%80%82%E5%BA%94/"/>
     <url>/2023/10/16/QT4.1%20%20QTableView%E8%87%AA%E9%80%82%E5%BA%94/</url>
