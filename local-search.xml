@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>MySQL  存储过程</title>
+    <link href="/2023/10/18/MySQL%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/"/>
+    <url>/2023/10/18/MySQL%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/</url>
+    
+    <content type="html"><![CDATA[<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><blockquote><p>简单介绍存储过程的含义</p></blockquote>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>MySQL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>MySQL  limit关键字</title>
     <link href="/2023/10/18/mysql%20limit/"/>
     <url>/2023/10/18/mysql%20limit/</url>
