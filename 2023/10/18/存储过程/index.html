@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://z1.ax1x.com/2023/10/24/piEp2yF.jpg">
 <meta property="article:published_time" content="2023-10-18T02:39:10.000Z">
-<meta property="article:modified_time" content="2023-10-24T00:54:21.626Z">
+<meta property="article:modified_time" content="2023-10-24T00:56:30.186Z">
 <meta property="article:author" content="Zander">
 <meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary_large_image">
@@ -292,7 +292,7 @@
                 <h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><blockquote>
 <p>简单介绍存储过程的含义和使用</p>
 </blockquote>
-<h4 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h4><p>**存储过程(Stored Procedure).**是大型数据库系统中,一组为完成特定功能的SQL程序代码.它已经过编译后存储在数据库中,用户可以通过制定的存储过程名和参数来执行它</p>
+<h4 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h4><p>存储过程(Stored Procedure)是大型数据库系统中,一组为完成特定功能的SQL程序代码.它已经过编译后存储在数据库中,用户可以通过制定的存储过程名和参数来执行它</p>
 <h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p><strong>1.执行速度更快</strong><br>存储过程是在创建时被编译和优化过,调用一次后相关信息就保存在数据库中,同时内存会保留一份存储过程,下次调用就可以直接从内存中调用执行,不占用CUP资源.<br><strong>2.存储过程可以减少网络通信流量</strong><br>一个百行T-SQL代码的操作可以通过执行一条过程代码替换,且不需要在网络中发送数百行代码.<br><strong>3.存储过程允许模块化设计</strong><br>当创建后即可在程序中调用多次,这可以改进应用程序的可维护性,并允许与应用程序统一访问数据库.<br><strong>4.存储过程安全性更高</strong><br>可以使用数据库的安全机制限制对数据库的访问,如授权某用户只能执行不能修改存储过程,同时它存储过程可以加强应用程序的安全性使其不受SQL注入工具.<br><strong>5.存储过程允许延迟绑定</strong><br>可以穿件引用尚不存在的表,在创建存储过程中只检查语法,知道第一次执行该存储过程时才对其编译,如果引用的表不存在能创建存储过程,但运行会失败.</p>
 <h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> PROC[EDURE] <span class="hljs-operator">&lt;</span>存储过程名称<span class="hljs-operator">&gt;</span>     <span class="hljs-comment">-- 定义存储过程名称</span><br>[ @参数名称 参数类型]                 <span class="hljs-comment">-- 定义传值参数及类型</span><br>[<span class="hljs-operator">=</span><span class="hljs-keyword">default</span>][OUTPUT][,...n1]           <span class="hljs-comment">-- 定义参数的属性：默认值，返回值</span><br><span class="hljs-keyword">AS</span><br><span class="hljs-keyword">BEGIN</span><br><span class="hljs-keyword">SQL</span> 语句[,...n2]                     <span class="hljs-comment">--执行的操作</span><br><span class="hljs-keyword">END</span><br></code></pre></td></tr></table></figure>
 <p>参数也可以有默认值</p>
