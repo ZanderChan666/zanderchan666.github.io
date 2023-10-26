@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>数据库  游标</title>
+    <link href="/2023/10/26/%E6%B8%B8%E6%A0%87/"/>
+    <url>/2023/10/26/%E6%B8%B8%E6%A0%87/</url>
+    
+    <content type="html"><![CDATA[<h2 id="数据库-游标"><a href="#数据库-游标" class="headerlink" title="数据库 游标"></a>数据库 游标</h2><blockquote><p>导读: 文章数据库 游标的定义和使用方法</p></blockquote><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><strong>官方解读：</strong><br><strong>结果集:</strong> 关系数据库中的操作会对整个行集起作用。 例如，由 <code>SELECT</code> 语句返回的行集包括满足该语句的 <code>WHERE</code> 子句中条件的所有行。 这种由语句返回的完整行集称为结果集。<br><strong>游标:</strong> 应用程序，特别是交互式联机应用程序，并不总能将整个结果集作为一个单元来有效地处理。 这些应用程序需要一种机制以便每次处理一行或一部分行。 游标就是提供这种机制的对结果集的一种扩展。</p><p><strong>解读:</strong><br>可以对结果集进行遍历的指针, 可以指向结果集的一行数据或者部分行。</p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>使用游标(cursor)的一个主要的原因就是把整个结果集操作转换成单个记录处理方式。</p><ul><li><p>允许定位在结果集的特定行。</p></li><li><p>从结果集的当前位置检索一行或一部分行。</p></li><li><p>支持对结果集中当前位置的行进行数据修改。</p></li><li><p>为由其他用户对显示在结果集中的数据库数据所做的更改提供不同级别的可见性支持。</p></li><li><p>为脚本、存储过程和触发器中的 Transact-SQL 语句提供访问结果集中数据的权限。</p></li></ul><h3 id="T-SQL"><a href="#T-SQL" class="headerlink" title="T-SQL"></a>T-SQL</h3><p><strong>创建游标</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DECLARE</span> 游标名 <span class="hljs-keyword">CURSOR</span><br><span class="hljs-keyword">FOR</span><br><span class="hljs-keyword">SELECT</span> 语句 #此处必须是<span class="hljs-keyword">SELECT</span>语句<br></code></pre></td></tr></table></figure><p><strong>打开游标</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">OPEN</span> 游标名称<br></code></pre></td></tr></table></figure><p><strong>读取游标</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">FETCH</span>   <br>          [ [ NEXT <span class="hljs-operator">|</span> PRIOR <span class="hljs-operator">|</span> <span class="hljs-keyword">FIRST</span> <span class="hljs-operator">|</span> <span class="hljs-keyword">LAST</span>   <br>                    <span class="hljs-operator">|</span> ABSOLUTE &#123; n <span class="hljs-operator">|</span> <span class="hljs-variable">@nvar</span> &#125;   <br>                    <span class="hljs-operator">|</span> RELATIVE &#123; n <span class="hljs-operator">|</span> <span class="hljs-variable">@nvar</span> &#125;   <br>               ]   <br>               <span class="hljs-keyword">FROM</span>   <br>          ]   <br>&#123; &#123; [ <span class="hljs-keyword">GLOBAL</span> ] cursor_name &#125; <span class="hljs-operator">|</span> <span class="hljs-variable">@cursor_variable_name</span> &#125;   <br>[ <span class="hljs-keyword">INTO</span> <span class="hljs-variable">@variable_name</span> [ ,...n ] ]<br></code></pre></td></tr></table></figure><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">FETCH</span> NEXT <span class="hljs-keyword">FROM</span> curl<br><span class="hljs-keyword">SELECT</span> <span class="hljs-string">&#x27;NEXT_FETCH执行情况&#x27;</span><span class="hljs-operator">=</span>@<span class="hljs-variable">@FETCH_STATUS</span><br></code></pre></td></tr></table></figure><p><strong>关闭游标</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CLOSE</span> 游标名称<br></code></pre></td></tr></table></figure><p> <strong>删除游标</strong></p><p>游标关闭后定义还在，需要时可以再使用 OPEN 打开游标继续使用。若确定不再使用则使用 CLOSE 删除游标，释放占用系统中的资源。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DEALLOCATE</span> 游标名称<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>数据库</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>数据库  事务</title>
     <link href="/2023/10/25/%E4%BA%8B%E5%8A%A1/"/>
     <url>/2023/10/25/%E4%BA%8B%E5%8A%A1/</url>
