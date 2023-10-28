@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>数据库  视图</title>
+    <link href="/2023/10/28/%E8%A7%86%E5%9B%BE/"/>
+    <url>/2023/10/28/%E8%A7%86%E5%9B%BE/</url>
+    
+    <content type="html"><![CDATA[<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><blockquote><p><span style="background: #FF7F50;"> 导读：<br>视图的相关概念和使用  </span></p></blockquote><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul><li><p>为了开发便利，视图是一个或者多个表导出来的一个虚拟表， 它不是真实存在的表。</p></li><li><p>存放在数据库中，只存放视图的定义，并不存放视图中的数据，这些数据还是在原来的表中。</p></li><li><p>原来的表改变会影响到视图的信息，相应的也会发生改变，视图的数据依赖与原来表的数据。</p></li><li><p>视图一般不可以插入修改删除，在SQL92定义了可更新视图，可以做到插入修改删除，但是限制较多，建议谨慎使用。</p></li></ul><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p><strong>操作简单</strong><br>视图经过筛选原有表的列，达到所见即所需。简化操作，直接查询视图名就可以，经常查询的数据设置为视图，不需要每次都指定所需的列名。<br><strong>增加了数据的安全性</strong><br>通过视图，只能查询操指定的列，防止信息暴露，而且也不会直接接触真实的表，增加了安全性。<br><strong>提高了表的逻辑独立性</strong><br>由于视图屏蔽了部分原有表结构，这样原有表增加列和删除为引入的列对视图没有影响。同样，如果修改某个列，也可以通过修改视图的方式解决这个问题。</p><h3 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h3><h4 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">VIEW</span> view_student1(stu_id,stu_name,stu_class) <br><span class="hljs-keyword">AS</span> <br><span class="hljs-keyword">SELECT</span> id,name,class <br><span class="hljs-keyword">FROM</span> student;<br></code></pre></td></tr></table></figure><h4 id="查询视图"><a href="#查询视图" class="headerlink" title="查询视图"></a>查询视图</h4><p>查询某个视图</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> view_student1;<br></code></pre></td></tr></table></figure><p>查询库里所有的视图</p><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf">describe view_student<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure><h4 id="修改视图"><a href="#修改视图" class="headerlink" title="修改视图"></a>修改视图</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">VIEW</span> view_student1 <br><span class="hljs-keyword">AS</span> <br><span class="hljs-keyword">SELECT</span> id,name,class <br><span class="hljs-keyword">FROM</span> student <br><span class="hljs-keyword">where</span> id <span class="hljs-keyword">in</span> (<span class="hljs-keyword">select</span> id <span class="hljs-keyword">from</span> student );<br></code></pre></td></tr></table></figure><p>修改和创建以这样，只是将CREAT改为ALTER</p><h4 id="删除视图"><a href="#删除视图" class="headerlink" title="删除视图"></a>删除视图</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">VIEW</span> IF <span class="hljs-keyword">EXISTS</span> view_student;<br></code></pre></td></tr></table></figure><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://blog.csdn.net/baidu_15952103/article/details/109193385">【精选】MySQL数据库视图概念、基本操作和使用详解-CSDN博客</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>数据库</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>数据库  触发器</title>
     <link href="/2023/10/28/%E8%A7%A6%E5%8F%91%E5%99%A8/"/>
     <url>/2023/10/28/%E8%A7%A6%E5%8F%91%E5%99%A8/</url>
