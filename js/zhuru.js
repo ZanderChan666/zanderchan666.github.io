@@ -1,0 +1,1 @@
+hexo.extend.injector.register('head_end', '<meta name="msvalidate.01" content="03FECC5C738248EFCB4A6F178E3CCC2D" />', 'home');
