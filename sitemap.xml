@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://zanderchan666.github.io/2023/10/11/%E6%8D%A2%E7%94%B5%E8%84%91%E5%90%8E%E5%A6%82%E4%BD%95%E8%BD%AC%E7%A7%BB%E8%87%AA%E5%B7%B1%E7%9A%84HEXO%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>http://zanderchan666.github.io/2024/10/16/%E6%8D%A2%E7%94%B5%E8%84%91%E5%90%8E%E5%A6%82%E4%BD%95%E8%BD%AC%E7%A7%BB%E8%87%AA%E5%B7%B1%E7%9A%84HEXO%E5%8D%9A%E5%AE%A2/</loc>
     
     <lastmod>2024-10-16</lastmod>
     
@@ -293,6 +293,13 @@
   
   <url>
     <loc>http://zanderchan666.github.io/tags/MFC/</loc>
+    <lastmod>2024-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://zanderchan666.github.io/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2024-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

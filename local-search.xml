@@ -17,6 +17,25 @@
   
   
   <entry>
+    <title>换电脑后HEXO博客的转移</title>
+    <link href="/2024/10/16/%E6%8D%A2%E7%94%B5%E8%84%91%E5%90%8E%E5%A6%82%E4%BD%95%E8%BD%AC%E7%A7%BB%E8%87%AA%E5%B7%B1%E7%9A%84HEXO%E5%8D%9A%E5%AE%A2/"/>
+    <url>/2024/10/16/%E6%8D%A2%E7%94%B5%E8%84%91%E5%90%8E%E5%A6%82%E4%BD%95%E8%BD%AC%E7%A7%BB%E8%87%AA%E5%B7%B1%E7%9A%84HEXO%E5%8D%9A%E5%AE%A2/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Hexo转移"><a href="#Hexo转移" class="headerlink" title="Hexo转移"></a>Hexo转移</h2><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://blog.csdn.net/qq_36667170/article/details/118163563">换电脑后怎么迁移hexo博客？CSDN</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>随笔</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>海康威视SDK车牌号识别调试</title>
     <link href="/2024/08/13/%E6%B5%B7%E5%BA%B7%E5%A8%81%E8%A7%86%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB%E8%B0%83%E8%AF%95/"/>
     <url>/2024/08/13/%E6%B5%B7%E5%BA%B7%E5%A8%81%E8%A7%86%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB%E8%B0%83%E8%AF%95/</url>
@@ -292,25 +311,6 @@
     <url>/2023/10/11/mysql%20%20%20OR%E5%85%B3%E9%94%AE%E8%AF%8D/</url>
     
     <content type="html"><![CDATA[<h2 id="OR关键字"><a href="#OR关键字" class="headerlink" title="OR关键字"></a>OR关键字</h2><p>在书写OR关键字时，如果后面还有条件，一定要注意<br><strong>加括号！加括号！加括号！！！</strong><br>否则后面的条件也变成OR语句里的内容。</p>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>MySQL</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>换电脑后HEXO博客的转移</title>
-    <link href="/2023/10/11/%E6%8D%A2%E7%94%B5%E8%84%91%E5%90%8E%E5%A6%82%E4%BD%95%E8%BD%AC%E7%A7%BB%E8%87%AA%E5%B7%B1%E7%9A%84HEXO%E5%8D%9A%E5%AE%A2/"/>
-    <url>/2023/10/11/%E6%8D%A2%E7%94%B5%E8%84%91%E5%90%8E%E5%A6%82%E4%BD%95%E8%BD%AC%E7%A7%BB%E8%87%AA%E5%B7%B1%E7%9A%84HEXO%E5%8D%9A%E5%AE%A2/</url>
-    
-    <content type="html"><![CDATA[<h2 id="Hexo转移"><a href="#Hexo转移" class="headerlink" title="Hexo转移"></a>Hexo转移</h2><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://blog.csdn.net/qq_36667170/article/details/118163563">换电脑后怎么迁移hexo博客？CSDN</a></p>]]></content>
     
     
     
