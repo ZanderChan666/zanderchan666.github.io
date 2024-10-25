@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>C++ Mysql查出来的中文是乱码</title>
+    <link href="/2024/10/25/C++%20MYsql%E6%9F%A5%E5%87%BA%E6%9D%A5%E7%9A%84%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/"/>
+    <url>/2024/10/25/C++%20MYsql%E6%9F%A5%E5%87%BA%E6%9D%A5%E7%9A%84%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<h1 id="C-Mysql查出来的中文是乱码"><a href="#C-Mysql查出来的中文是乱码" class="headerlink" title="C++ Mysql查出来的中文是乱码"></a>C++ Mysql查出来的中文是乱码</h1><blockquote><p>中文乱码</p></blockquote><h3 id="MYSQL设置"><a href="#MYSQL设置" class="headerlink" title="MYSQL设置"></a>MYSQL设置</h3><p>我mysql的设置字符集时utf-8</p><p><img src="https://ooo.0x0.ooo/2024/10/25/OD28Ng.jpg" alt="MYSQL设置"></p><p>网上是 </p><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">mysql<span class="hljs-constructor">_query(<span class="hljs-params">conn</span>, <span class="hljs-string">&quot;set names utf8&quot;</span>)</span>;<br></code></pre></td></tr></table></figure><p>仍然是乱码。</p><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">mysql<span class="hljs-constructor">_query(<span class="hljs-params">conn</span>, <span class="hljs-string">&quot;set names &#x27;gb2312&#x27;&quot;</span>)</span>;<br></code></pre></td></tr></table></figure><p>这样写可以。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>C语言</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2024/10/16/hello-world/"/>
     <url>/2024/10/16/hello-world/</url>
